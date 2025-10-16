@@ -25,6 +25,7 @@
             color: var(--dark);
             line-height: 1.6;
             overflow-x: hidden;
+            padding-top: 120px; /* Добавлено для компенсации фиксированного хедера */
         }
         
         .container {
@@ -38,9 +39,11 @@
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: var(--light);
             padding: 20px 0;
-            position: sticky;
+            position: fixed; /* Изменено с sticky на fixed */
             top: 0;
-            z-index: 100;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             animation: headerSlideDown 0.8s ease-out;
         }
@@ -447,7 +450,7 @@
         footer {
             background-color: var(--dark);
             color: var(--light);
-            padding: 30px 0 10px;
+            padding: 30px 0 15px; /* Уменьшено для компактности */
             opacity: 0;
             transform: translateY(20px);
             transition: all 0.8s ease;
@@ -461,12 +464,12 @@
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 20px;
+            gap: 20px; /* Уменьшено для компактности */
+            margin-bottom: 20px; /* Уменьшено для компактности */
         }
         
         .footer-section h3 {
-            margin-bottom: 15px;
+            margin-bottom: 15px; /* Уменьшено для компактности */
             color: var(--primary);
         }
         
@@ -475,7 +478,7 @@
         }
         
         .footer-section li {
-            margin-bottom: 8px;
+            margin-bottom: 8px; /* Уменьшено для компактности */
             opacity: 0;
             transform: translateX(-10px);
             transition: all 0.3s ease;
@@ -498,9 +501,9 @@
         
         .copyright {
             text-align: center;
-            padding-top: 15px;
+            padding-top: 15px; /* Уменьшено для компактности */
             border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 0.9rem;
+            font-size: 0.9rem; /* Уменьшено для компактности */
         }
         
         .timeline {
@@ -600,6 +603,10 @@
         }
         
         @media (max-width: 768px) {
+            body {
+                padding-top: 140px; /* Увеличено для мобильных устройств */
+            }
+            
             .lifecycle {
                 justify-content: center;
             }
@@ -773,7 +780,7 @@
                     </div>
                     
                     <div class="timeline-item">
-                        <div class="timeline-time">72-96 часов</div>
+                        <div class="timeline-time">72-96 часа</div>
                         <h4>Созревание и сбор урожая</h4>
                         <p>Формируется плотный, однородный биослой толщиной 0.5-2 мм. Материал извлекают, промывают и слегка подсушивают. На этом этапе материал уже прочный и готов к использованию.</p>
                     </div>
@@ -988,15 +995,7 @@
                     <ul>
                         <li><i class="fas fa-envelope"></i> mirsiyevr@gmail.com</li>
                         <li><i class="fas fa-phone"></i> +77475550270</li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Социальные сети</h3>
-                    <ul>
-                        <li><a href="#"><i class="fab fa-telegram"></i> Telegram</a></li>
-                        <li><a href="#"><i class="fab fa-vk"></i> ВКонтакте</a></li>
-                        <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> Москва, Россия</li>
                     </ul>
                 </div>
             </div>
@@ -1015,142 +1014,76 @@
                 answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
                 const icon = question.querySelector('i');
                 icon.classList.toggle('fa-chevron-down');
-                icon.classList icon.classList.toggle('fa-chevron-up');
-.toggle('fa-chevron-up');
-                       });
-        });
-        
-        // Скрываем все });
+                icon.classList.toggle('fa-chevron-up');
+            });
         });
         
         // Скрываем все ответы при загрузке страницы
-        document ответы при загрузке страницы
         document.querySelectorAll('.faq-answer').forEach(answer => {
-.querySelectorAll('.faq-answer').forEach(answer => {
             answer.style.display = 'none';
         });
         
-            answer.style.display = 'none';
-        });
-        
-        // Анимация        // Анимация появления элементов при скролле появления элементов при скролле
-        const observerOptions =
+        // Анимация появления элементов при скролле
         const observerOptions = {
-            threshold {
-            threshold:: 0.1,
-            rootMargin 0.1,
-            rootMargin: '0px 0: '0px 0px -50px 0pxpx -50px 0px'
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
         };
         
-        const observer'
-        };
-        
-        const observer = new IntersectionObserver(( = new IntersectionObserver((entries) => {
-entries) => {
-            entries.forEach(entry =>            entries.forEach(entry => {
-                if (entry.isIntersecting {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList) {
                     entry.target.classList.add('visible');
                     
-                    //.add('visible');
-                    
-                    // Анимация для элементов внутри Анимация для элементов внутри
-                    if (entry
-                    if (entry.target.classList.target.classList.contains('lifecycle.contains('lifecycle-step-step')) {
-                        setTimeout(()')) {
+                    // Анимация для элементов внутри
+                    if (entry.target.classList.contains('lifecycle-step')) {
                         setTimeout(() => {
- => {
-                            const                            const arrows arrows = document.querySelectorAll('.arrow');
-                            arrows.forEach((arrow, index) = document.querySelectorAll('.arrow');
-                            arrows.forEach((arrow, index) => => {
-                                setTimeout {
+                            const arrows = document.querySelectorAll('.arrow');
+                            arrows.forEach((arrow, index) => {
                                 setTimeout(() => {
-                                   (() => {
-                                    arrow.classList.add(' arrow.classList.add('visible');
-visible');
-                                }, index *                                }, index * 200 200);
+                                    arrow.classList.add('visible');
+                                }, index * 200);
                             });
-                       );
-                            });
-                        },  }, 300);
+                        }, 300);
                     }
                     
-                    if (300);
-                    }
-                    
-                   entry.target.classList.contains('footer-section if (entry.target.classList.contains('')) {
-                        const listfooter-section')) {
-                        const listItems = entry.target.querySelectorAllItems = entry.target.querySelectorAll('li('li');
+                    if (entry.target.classList.contains('footer-section')) {
+                        const listItems = entry.target.querySelectorAll('li');
                         listItems.forEach((item, index) => {
-');
-                        listItems.forEach((item, index) => {
-                            setTimeout(() =>                            setTimeout(() => {
-                                item {
-                                item.style.transitionDelay =.style.transitionDelay = `${index `${index * 0. * 0.1}s1}s`;
-                                item.classList`;
-                                item.classList.add('.add('visible');
-                            },visible');
+                            setTimeout(() => {
+                                item.style.transitionDelay = `${index * 0.1}s`;
+                                item.classList.add('visible');
                             }, 100);
                         });
                     }
-                100);
-                        });
-                    }
-            });
-        }, observer }
                 }
             });
-       Options);
+        }, observerOptions);
         
-        // Наблюда }, observerOptions);
-        
-        // Наблюдаем за всемием за всеми элементами элементами с анимацией с анимацией
-       
-        document.querySelectorAll('. document.querySelectorAll('.section, .cardsection, .card, ., .infographic, .process-step, .infographic, .process-step, .lifecycle-step,lifecycle-step, .property, .faq-item .property, .faq-item,, .timeline-item').forEach .timeline-item').forEach(el => {
-            observer.observe(el => {
-            observer.(el);
+        // Наблюдаем за всеми элементами с анимацией
+        document.querySelectorAll('.section, .card, .infographic, .process-step, .lifecycle-step, .property, .faq-item, .timeline-item').forEach(el => {
+            observer.observe(el);
         });
         
-       observe(el);
-        });
- // Плавная        
-        // Плавная прокрутка к якор прокрутка к якорям
-        documentям
-        document.querySelectorAll('a[href^="#"].querySelectorAll('a[href^="#"]').forEach').forEach(anchor => {
-(anchor => {
-            anchor.addEventListener('click', function            anchor.addEventListener('click', function(e) {
-                e.preventDefault(e) {
+        // Плавная прокрутка к якорям с учетом фиксированного хедера
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 
-();
-                
-                const targetId                const targetId = = this.getAttribute('href this.getAttribute('href');
-                if (targetId === '#');
+                const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
                 
-') return;
-                
-                const                const targetElement = document targetElement = document.querySelector(target.querySelector(targetId);
-                ifId);
-                if (target (targetElementElement) {
-                   ) {
- window.scrollTo({
-                        top: targetElement.                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'offsetTop - 80,
-                        behavior: 'ssmooth'
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
                     });
                 }
             });
         });
-    </mooth'
-                    });
-                }
-            });
-        });
-    </scriptscript>
-</body>
-</>
+    </script>
 </body>
 </html>
