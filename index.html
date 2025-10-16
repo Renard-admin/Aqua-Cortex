@@ -25,7 +25,6 @@
             color: var(--dark);
             line-height: 1.6;
             overflow-x: hidden;
-            padding-top: 100px; /* Отступ для фиксированного хедера */
         }
         
         .container {
@@ -38,20 +37,17 @@
         header {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: var(--light);
-            padding: 15px 0;
-            position: fixed;
+            padding: 20px 0;
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
+            z-index: 100;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            animation: headerSlideDown 0.8s ease-out;
         }
         
-        .header-scrolled {
-            padding: 10px 0;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        @keyframes headerSlideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
         }
         
         .logo {
@@ -70,13 +66,14 @@
             justify-content: center;
             color: var(--secondary);
             font-weight: bold;
+            /* Анимация вращения удалена */
         }
         
         nav ul {
             display: flex;
             list-style: none;
             justify-content: center;
-            margin-top: 10px;
+            margin-top: 15px;
             flex-wrap: wrap;
         }
         
@@ -603,10 +600,6 @@
         }
         
         @media (max-width: 768px) {
-            body {
-                padding-top: 130px; /* Больший отступ для мобильных устройств */
-            }
-            
             .lifecycle {
                 justify-content: center;
             }
@@ -645,7 +638,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header id="main-header">
+    <header>
         <div class="container">
             <div class="logo">
                 <div class="logo-icon">AC</div>
@@ -993,8 +986,8 @@
                 <div class="footer-section">
                     <h3>Контакты</h3>
                     <ul>
-                        <li><i class="fas fa-phone"></i> +7 747 555 02 70</li>
-                        <li><i class="fas fa-envelope"></i> mirsiyevr@gmail.com</li>
+                        <li><i class="fas fa-envelope"></i> info@aquacortex.design</li>
+                        <li><i class="fas fa-phone"></i> +7 (XXX) XXX-XX-XX</li>
                         <li><i class="fas fa-map-marker-alt"></i> Москва, Россия</li>
                     </ul>
                 </div>
@@ -1069,73 +1062,27 @@
         }, observerOptions);
         
         // Наблюдаем за всеми элементами с анимацией
-        document.querySelectorAll('.section, .card, .infographic, .process-step, .lifecycle-step, .property, .faq-item, .timeline-item').forEach(el(el => {
-            => {
-            observer. observer.observe(el);
-        });
-observe(el);
+        document.querySelectorAll('.section, .card, .infographic, .process-step, .lifecycle-step, .property, .faq-item, .timeline-item').forEach(el => {
+            observer.observe(el);
         });
         
-        
-        // Плавная        // Плавная прокрутка к якор прокрутка к якорям с учетом фиксированного хям с учетом фиксированногоедера
-        document.querySelectorAll(' хедера
-        document.querySelectorAll('a[href^a[href^="#"]="#"]').forEach(anchor').forEach(anchor => {
- => {
-            anchor.addEventListener('            anchor.addEventListener('click', function(e) {
-click', function(e) {
-                e                e.preventDefault();
+        // Плавная прокрутка к якорям
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
                 
-               .preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
                 
-                const target const targetId = this.getId = this.getAttribute('href');
-                ifAttribute('href');
-                if (target (targetId === '#')Id === '#') return;
-                
-                const targetElement = return;
-                
-                const targetElement = document.querySelector(targetId document.querySelector(targetId);
-               );
-                if (targetElement if (targetElement) {
-                    const headerHeight = document.getElementById('main-header').offsetHeight;
-                    window.scroll) {
-                    const headerHeight = document.getElementById('To({
-                        topmain-header').offsetHeight;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - header: targetElement.offsetTop - headerHeight - 20,
-                       Height - 20,
+                        top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
- behavior: 'smooth'
                     });
                 }
             });
-                           });
-                }
-            });
- });
-        
-        // Измен        });
-        
-        // Изменение стиля хение стиля хедера при скредера при скролле
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('mainолле
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('main-header');
-            if-header');
-            if (window (window.scrollY >.scrollY > 50 50) {
-               ) {
-                header.classList.add header.classList.add('header-scrolled('header-scrolled');
-           ');
-            } else {
-                header.classList.remove('header-sc } else {
-                header.classList.remove('header-scrolled');
-           rolled');
-            }
-        } }
         });
-);
-    </script>
     </script>
 </body>
-</</body>
 </html>
-html>
