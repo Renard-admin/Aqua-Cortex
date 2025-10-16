@@ -25,7 +25,7 @@
             color: var(--dark);
             line-height: 1.6;
             overflow-x: hidden;
-            padding-top: 120px; /* Добавлено для компенсации фиксированного хедера */
+            padding-top: 120px; /* Отступ для фиксированного хедера */
         }
         
         .container {
@@ -38,19 +38,26 @@
         header {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: var(--light);
-            padding: 20px 0;
-            position: fixed; /* Изменено с sticky на fixed */
+            padding: 15px 0;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            animation: headerSlideDown 0.8s ease-out;
+            transition: all 0.3s ease;
         }
         
-        @keyframes headerSlideDown {
-            from { transform: translateY(-100%); }
-            to { transform: translateY(0); }
+        .header-scrolled {
+            padding: 10px 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
         .logo {
@@ -71,19 +78,21 @@
             font-weight: bold;
         }
         
-        nav ul {
+        .desktop-nav {
+            display: flex;
+        }
+        
+        .desktop-nav ul {
             display: flex;
             list-style: none;
-            justify-content: center;
-            margin-top: 15px;
             flex-wrap: wrap;
         }
         
-        nav li {
+        .desktop-nav li {
             margin: 0 15px;
         }
         
-        nav a {
+        .desktop-nav a {
             color: var(--light);
             text-decoration: none;
             font-weight: 500;
@@ -91,7 +100,7 @@
             position: relative;
         }
         
-        nav a:after {
+        .desktop-nav a:after {
             content: '';
             position: absolute;
             width: 0;
@@ -102,8 +111,68 @@
             transition: width 0.3s ease;
         }
         
-        nav a:hover:after {
+        .desktop-nav a:hover:after {
             width: 100%;
+        }
+        
+        /* Стили для мобильного меню */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+        
+        .mobile-menu-toggle span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: var(--light);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 999;
+        }
+        
+        .mobile-nav ul {
+            list-style: none;
+            padding: 20px 0;
+        }
+        
+        .mobile-nav li {
+            margin: 0;
+        }
+        
+        .mobile-nav a {
+            display: block;
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 15px 20px;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .mobile-nav a:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        .mobile-nav.active {
+            display: block;
         }
         
         .hero {
@@ -450,7 +519,7 @@
         footer {
             background-color: var(--dark);
             color: var(--light);
-            padding: 30px 0 15px; /* Уменьшено для компактности */
+            padding: 40px 0 20px;
             opacity: 0;
             transform: translateY(20px);
             transition: all 0.8s ease;
@@ -463,13 +532,13 @@
         
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px; /* Уменьшено для компактности */
-            margin-bottom: 20px; /* Уменьшено для компактности */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
         }
         
         .footer-section h3 {
-            margin-bottom: 15px; /* Уменьшено для компактности */
+            margin-bottom: 20px;
             color: var(--primary);
         }
         
@@ -478,7 +547,7 @@
         }
         
         .footer-section li {
-            margin-bottom: 8px; /* Уменьшено для компактности */
+            margin-bottom: 10px;
             opacity: 0;
             transform: translateX(-10px);
             transition: all 0.3s ease;
@@ -501,9 +570,8 @@
         
         .copyright {
             text-align: center;
-            padding-top: 15px; /* Уменьшено для компактности */
+            padding-top: 20px;
             border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 0.9rem; /* Уменьшено для компактности */
         }
         
         .timeline {
@@ -602,9 +670,97 @@
             flex-shrink: 0;
         }
         
+        .formula-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+            border-left: 5px solid var(--secondary);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .formula-title {
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .ingredient-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .ingredient-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .ingredient-name {
+            font-weight: 500;
+        }
+        
+        .ingredient-amount {
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        
+        .scientific-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .scientific-table th, .scientific-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .scientific-table th {
+            background-color: var(--primary);
+            color: var(--light);
+            font-weight: 600;
+        }
+        
+        .scientific-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .comparison-item {
+            background-color: var(--light);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .comparison-item h4 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        /* Адаптивность для мобильных устройств */
         @media (max-width: 768px) {
             body {
-                padding-top: 140px; /* Увеличено для мобильных устройств */
+                padding-top: 100px; /* Меньший отступ для мобильных устройств */
+            }
+            
+            .desktop-nav {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
             }
             
             .lifecycle {
@@ -613,15 +769,6 @@
             
             .arrow {
                 display: none;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            nav li {
-                margin: 5px 0;
             }
             
             .timeline:before {
@@ -639,23 +786,67 @@
             .timeline-item:after {
                 left: 10px !important;
             }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .scientific-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .mobile-nav {
+                display: none !important;
+            }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>
+    <header id="main-header">
         <div class="container">
-            <div class="logo">
-                <div class="logo-icon">AC</div>
-                <h1>Aqua-Cortex</h1>
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">AC</div>
+                    <h1>Aqua-Cortex</h1>
+                </div>
+                
+                <!-- Навигация для ПК -->
+                <nav class="desktop-nav">
+                    <ul>
+                        <li><a href="#concept">Концепция</a></li>
+                        <li><a href="#bacteria">Биологические игроки</a></li>
+                        <li><a href="#production">Производство</a></li>
+                        <li><a href="#science">Научные основы</a></li>
+                        <li><a href="#properties">Свойства</a></li>
+                        <li><a href="#recycling">Утилизация</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </nav>
+                
+                <!-- Кнопка гамбургер-меню для мобильных -->
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
-            <nav>
+            
+            <!-- Навигация для мобильных -->
+            <nav class="mobile-nav" id="mobile-nav">
                 <ul>
                     <li><a href="#concept">Концепция</a></li>
                     <li><a href="#bacteria">Биологические игроки</a></li>
                     <li><a href="#production">Производство</a></li>
+                    <li><a href="#science">Научные основы</a></li>
                     <li><a href="#properties">Свойства</a></li>
                     <li><a href="#recycling">Утилизация</a></li>
                     <li><a href="#faq">FAQ</a></li>
@@ -705,6 +896,29 @@
                         <p>Утилизация</p>
                     </div>
                 </div>
+                
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <h4>Традиционные ткани</h4>
+                        <ul>
+                            <li>Высокий углеродный след</li>
+                            <li>Использование химикатов</li>
+                            <li>Невозможность полной переработки</li>
+                            <li>Загрязнение воды</li>
+                            <li>Долгий процесс производства</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-item">
+                        <h4>Aqua-Cortex</h4>
+                        <ul>
+                            <li>Нулевой углеродный след</li>
+                            <li>Биологическое производство</li>
+                            <li>100% перерабатываемость</li>
+                            <li>Безотходное производство</li>
+                            <li>Быстрое выращивание (96 часов)</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -730,6 +944,17 @@
                         <li>Оптимальная температура роста: 28-32°C</li>
                         <li>Время активного роста: 24-36 часов</li>
                     </ul>
+                    
+                    <div class="formula-card">
+                        <div class="formula-title">Генетическая модификация Cellulomonas:</div>
+                        <ul class="ingredient-list">
+                            <li><span class="ingredient-name">Ген celA из Gluconacetobacter xylinus</span> <span class="ingredient-amount">+</span></li>
+                            <li><span class="ingredient-name">Промотор P<sub>tac</sub></span> <span class="ingredient-amount">для контроля экспрессии</span></li>
+                            <li><span class="ingredient-name">Ген phaC из Ralstonia eutropha</span> <span class="ingredient-amount">+</span></li>
+                            <li><span class="ingredient-name">Сигнальный пептид OmpA</span> <span class="ingredient-amount">для секреции</span></li>
+                            <li><span class="ingredient-name">Ген устойчивости к канамицину</span> <span class="ingredient-amount">маркер отбора</span></li>
+                        </ul>
+                    </div>
                 </div>
                 
                 <div class="card">
@@ -749,6 +974,17 @@
                         <li>Время активного роста: 18-24 часа</li>
                         <li>Активация раствором-триггером: 2-4 часа</li>
                     </ul>
+                    
+                    <div class="formula-card">
+                        <div class="formula-title">Генетическая модификация Bacillus:</div>
+                        <ul class="ingredient-list">
+                            <li><span class="ingredient-name">Ген ligA (Лигазин)</span> <span class="ingredient-amount">+</span></li>
+                            <li><span class="ingredient-name">Ген disB (Диссолвин)</span> <span class="ingredient-amount">+</span></li>
+                            <li><span class="ingredient-name">Промотор P<sub>spank</sub></span> <span class="ingredient-amount">индуцибельный</span></li>
+                            <li><span class="ingredient-name">Рецептор пептида XF-7</span> <span class="ingredient-amount">для активации</span></li>
+                            <li><span class="ingredient-name">Система quorum sensing</span> <span class="ingredient-amount">для координации</span></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -780,10 +1016,27 @@
                     </div>
                     
                     <div class="timeline-item">
-                        <div class="timeline-time">72-96 часа</div>
+                        <div class="timeline-time">72-96 часов</div>
                         <h4>Созревание и сбор урожая</h4>
                         <p>Формируется плотный, однородный биослой толщиной 0.5-2 мм. Материал извлекают, промывают и слегка подсушивают. На этом этапе материал уже прочный и готов к использованию.</p>
                     </div>
+                </div>
+                
+                <div class="formula-card">
+                    <div class="formula-title">Рецепт питательной среды (на 1 литр):</div>
+                    <ul class="ingredient-list">
+                        <li><span class="ingredient-name">Агар-агар</span> <span class="ingredient-amount">15 г</span></li>
+                        <li><span class="ingredient-name">Глюкоза</span> <span class="ingredient-amount">20 г</span></li>
+                        <li><span class="ingredient-name">Дрожжевой экстракт</span> <span class="ingredient-amount">5 g</span></li>
+                        <li><span class="ingredient-name">Пептон</span> <span class="ingredient-amount">10 g</span></li>
+                        <li><span class="ingredient-name">KH<sub>2</sub>PO<sub>4</sub></span> <span class="ingredient-amount">2 g</span></li>
+                        <li><span class="ingredient-name">MgSO<sub>4</sub>·7H<sub>2</sub>O</span> <span class="ingredient-amount">0.5 g</span></li>
+                        <li><span class="ingredient-name">NaCl</span> <span class="ingredient-amount">0.5 g</span></li>
+                        <li><span class="ingredient-name">CaCl<sub>2</sub></span> <span class="ingredient-amount">0.1 g</span></li>
+                        <li><span class="ingredient-name">Микроэлементы (Fe, Zn, Mn, Cu)</span> <span class="ingredient-amount">0.01 g</span></li>
+                        <li><span class="ingredient-name">Дистиллированная вода</span> <span class="ingredient-amount">до 1 л</span></li>
+                    </ul>
+                    <p><strong>Инструкция:</strong> Стерилизовать автоклавированием при 121°C в течение 15 минут. Охладить до 45°C перед добавлением бактериальных культур.</p>
                 </div>
                 
                 <div class="process-step">
@@ -815,6 +1068,82 @@
                     <div>
                         <h4>Сбор урожая</h4>
                         <p>Пластину материала извлекают, промывают и слегка подсушивают. На этом этапе материал уже прочный и готов к "пошиву". Общее время производства от инокуляции до готового материала составляет 96-120 часов.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="science" class="section">
+        <div class="container">
+            <h2 class="section-title">Научные основы технологии</h2>
+            <div class="infographic">
+                <h3>Биохимические процессы создания Aqua-Cortex</h3>
+                
+                <div class="card">
+                    <h3>Молекулярная структура Aquacell</h3>
+                    <p>Aquacell представляет собой ковалентный гибрид β-1,4-глюкана (целлюлоза) и поли-3-гидроксибутирата (ПГБ), созданный с помощью ферментативной полимеризации in vivo.</p>
+                    
+                    <table class="scientific-table">
+                        <thead>
+                            <tr>
+                                <th>Компонент</th>
+                                <th>Структурная роль</th>
+                                <th>Биосинтетический путь</th>
+                                <th>Ферменты</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Целлюлозный модуль</td>
+                                <td>Прочность, кристалличность</td>
+                                <td>UDP-глюкоза → β-1,4-глюкан</td>
+                                <td>Целлюлозосинтаза (CesA)</td>
+                            </tr>
+                            <tr>
+                                <td>ПГБ модуль</td>
+                                <td>Гибкость, гидрофобность</td>
+                                <td>Ацетил-КоА → ПГБ</td>
+                                <td>ПГБ-синтаза (PhaC)</td>
+                            </tr>
+                            <tr>
+                                <td>Связующий мостик</td>
+                                <td>Ковалентное соединение</td>
+                                <td>Гликозилирование ПГБ</td>
+                                <td>Гликозилтрансфераза (GTF)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="card">
+                    <h3>Ферментативная система кросс-линкинга</h3>
+                    <p>Лигазин — это модифицированный фермент лакказа, способный создавать ковалентные связи между гидроксильными группами Aquacell.</p>
+                    
+                    <div class="formula-card">
+                        <div class="formula-title">Реакция кросс-линкинга:</div>
+                        <p style="text-align: center; font-family: monospace; margin: 15px 0;">
+                            Aquacell-OH + Aquacell-OH + O<sub>2</sub> → Aquacell-O-Aquacell + H<sub>2</sub>O
+                        </p>
+                        <p><strong>Катализатор:</strong> Лигазин (модифицированная лакказа) с медным центром</p>
+                        <p><strong>Оптимальные условия:</strong> pH 6.5-7.5, температура 25-35°C, время реакции 12-24 часа</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>Система программируемой деградации</h3>
+                    <p>Диссолвин представляет собой химерный фермент, состоящий из целлюлазного домена и специфического пептида, распознающего только связи, созданные Лигазином.</p>
+                    
+                    <div class="formula-card">
+                        <div class="formula-title">Триггерный раствор для утилизации:</div>
+                        <ul class="ingredient-list">
+                            <li><span class="ingredient-name">Пептид XF-7</span> <span class="ingredient-amount">50 μM</span></li>
+                            <li><span class="ingredient-name">Глюкоза</span> <span class="ingredient-amount">10 mM</span></li>
+                            <li><span class="ingredient-name">Буфер Tris-HCl (pH 7.5)</span> <span class="ingredient-amount">50 mM</span></li>
+                            <li><span class="ingredient-name">MgCl<sub>2</sub></span> <span class="ingredient-amount">5 mM</span></li>
+                            <li><span class="ingredient-name">Экстракт дрожжей</span> <span class="ingredient-amount">0.1%</span></li>
+                        </ul>
+                        <p><strong>Механизм активации:</strong> Пептид XF-7 связывается с рецептором на поверхности Bacillus, запуская экспрессию гена disB и производство Диссолвина.</p>
                     </div>
                 </div>
             </div>
@@ -860,6 +1189,58 @@
                     <h3>Терморегуляция</h3>
                     <p>Материал адаптируется к температуре тела, обеспечивая комфорт в различных климатических условиях. Температурный диапазон: -10°C до +50°C.</p>
                 </div>
+            </div>
+            
+            <div class="infographic">
+                <h3>Сравнительные характеристики</h3>
+                <table class="scientific-table">
+                    <thead>
+                        <tr>
+                            <th>Параметр</th>
+                            <th>Aqua-Cortex</th>
+                            <th>Хлопок</th>
+                            <th>Полиэстер</th>
+                            <th>Шерсть</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Прочность на разрыв (МПа)</td>
+                            <td>45-60</td>
+                            <td>20-40</td>
+                            <td>40-70</td>
+                            <td>10-30</td>
+                        </tr>
+                        <tr>
+                            <td>Водопоглощение (%)</td>
+                            <td>3-5</td>
+                            <td>8-25</td>
+                            <td>0.4-1</td>
+                            <td>15-35</td>
+                        </tr>
+                        <tr>
+                            <td>Воздухопроницаемость (л/м²/с)</td>
+                            <td>5-7</td>
+                            <td>3-5</td>
+                            <td>1-3</td>
+                            <td>4-6</td>
+                        </tr>
+                        <tr>
+                            <td>Углеродный след (кг CO₂/кг)</td>
+                            <td>0.8</td>
+                            <td>4.0</td>
+                            <td>5.5</td>
+                            <td>5.0</td>
+                        </tr>
+                        <tr>
+                            <td>Время разложения (дни)</td>
+                            <td>1</td>
+                            <td>30-90</td>
+                            <td>200+ лет</td>
+                            <td>1-5 лет</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
@@ -909,6 +1290,17 @@
                         <h4>Конечный продукт (24 часа)</h4>
                         <p>Материал полностью распадается на белую пушистую биомассу (бактериальные клетки) и гель из чистых волокон Aquacell, которые можно использовать как удобрение или сырье для нового производства. Выход вторичного сырья составляет 92-95%.</p>
                     </div>
+                </div>
+                
+                <div class="formula-card">
+                    <div class="formula-title">Химический состав продуктов распада:</div>
+                    <ul class="ingredient-list">
+                        <li><span class="ingredient-name">Бактериальная биомасса</span> <span class="ingredient-amount">45-50%</span></li>
+                        <li><span class="ingredient-name">Волокна Aquacell</span> <span class="ingredient-amount">40-45%</span></li>
+                        <li><span class="ingredient-name">Минеральные соли</span> <span class="ingredient-amount">5-8%</span></li>
+                        <li><span class="ingredient-name">Вода</span> <span class="ingredient-amount">2-5%</span></li>
+                    </ul>
+                    <p><strong>Применение продуктов:</strong> Бактериальная биомасса — высокобелковый корм для животных; волокна Aquacell — сырье для нового производства или биоудобрение.</p>
                 </div>
             </div>
         </div>
@@ -964,7 +1356,17 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>При правильном уходе одежда из Aqua-Cortex сохраняет свои свойства в течение 3-5 лет интенсивного использования. Материал устойчив к износу, ультрафиолетовому излучению и многократным стиркам. После окончания срока службы рекомендуется сдать вещь на переработку.</p>
+                        <p>При правильном уходе одежда из Aqua-Cortex сохраняет свои свойства в течение 1-2 лет интенсивного использования. Материал устойчив к износу, ультрафиолетовому излучению и многократным стиркам. После окончания срока службы рекомендуется сдать вещь на переработку.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Можно ли производить Aqua-Cortex в домашних условиях?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Нет, производство Aqua-Cortex требует строго контролируемых лабораторных условий, специального оборудования и генетически модифицированных микроорганизмов. Попытки воспроизвести процесс в домашних условиях могут быть опасны и не приведут к созданию качественного материала.</p>
                     </div>
                 </div>
             </div>
@@ -980,33 +1382,53 @@
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Навигация</h3>
-                    <ul>
-                        <li><a href="#concept">Концепция</a></li>
-                        <li><a href="#bacteria">Биологические игроки</a></li>
-                        <li><a href="#production">Производство</a></li>
-                        <li><a href="#properties">Свойства</a></li>
-                        <li><a href="#recycling">Утилизация</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
                     <h3>Контакты</h3>
                     <ul>
+                        <li><i class="fas fa-phone"></i> +7 747 555 02 70</li>
                         <li><i class="fas fa-envelope"></i> mirsiyevr@gmail.com</li>
-                        <li><i class="fas fa-phone"></i> +77475550270</li>
-                        <li><i class="fas fa-map-marker-alt"></i> Москва, Россия</li>
                     </ul>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 Aqua-Cortex. Все права защищены.</p>
+                <p>&copy; 2025 Aqua-Cortex. Мирсиев Ренард</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Гамбургер-меню для мобильных устройств
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileNav = document.getElementById('mobile-nav');
+        
+        mobileMenuToggle.addEventListener('click', function() {
+            mobileNav.classList.toggle('active');
+            
+            // Анимация иконки гамбургера
+            const spans = this.querySelectorAll('span');
+            if (mobileNav.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
+        });
+        
+        // Закрытие меню при клике на ссылку
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileNav.classList.remove('active');
+                const spans = mobileMenuToggle.querySelectorAll('span');
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            });
+        });
+        
         // Простой скрипт для аккордеона FAQ
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
@@ -1060,7 +1482,7 @@
         }, observerOptions);
         
         // Наблюдаем за всеми элементами с анимацией
-        document.querySelectorAll('.section, .card, .infographic, .process-step, .lifecycle-step, .property, .faq-item, .timeline-item').forEach(el => {
+        document.querySelectorAll('.section, .card, .infographic, .process-step, .lifecycle-step, .property, .faq-item, .timeline-item, .footer-section').forEach(el => {
             observer.observe(el);
         });
         
@@ -1074,15 +1496,23 @@
                 
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                    const headerHeight = document.querySelector('header').offsetHeight;
-                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                    
+                    const headerHeight = document.getElementById('main-header').offsetHeight;
                     window.scrollTo({
-                        top: targetPosition,
+                        top: targetElement.offsetTop - headerHeight - 20,
                         behavior: 'smooth'
                     });
                 }
             });
+        });
+        
+        // Изменение стиля хедера при скролле
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
         });
     </script>
 </body>
