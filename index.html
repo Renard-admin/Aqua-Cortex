@@ -38,10 +38,8 @@
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: var(--light);
             padding: 20px 0;
-            position: fixed;
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
             z-index: 100;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             animation: headerSlideDown 0.8s ease-out;
@@ -50,10 +48,6 @@
         @keyframes headerSlideDown {
             from { transform: translateY(-100%); }
             to { transform: translateY(0); }
-        }
-        
-        .main-content {
-            margin-top: 120px; /* Отступ для фиксированного хедера */
         }
         
         .logo {
@@ -453,7 +447,7 @@
         footer {
             background-color: var(--dark);
             color: var(--light);
-            padding: 50px 0 20px;
+            padding: 30px 0 10px;
             opacity: 0;
             transform: translateY(20px);
             transition: all 0.8s ease;
@@ -468,11 +462,11 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 30px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
         
         .footer-section h3 {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             color: var(--primary);
         }
         
@@ -481,7 +475,7 @@
         }
         
         .footer-section li {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             opacity: 0;
             transform: translateX(-10px);
             transition: all 0.3s ease;
@@ -504,8 +498,9 @@
         
         .copyright {
             text-align: center;
-            padding-top: 20px;
+            padding-top: 15px;
             border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
         }
         
         .timeline {
@@ -662,314 +657,312 @@
         </div>
     </header>
 
-    <div class="main-content">
-        <section class="hero">
-            <div class="container">
-                <h1>Одежда, которая возвращается к истокам</h1>
-                <p>Aqua-Cortex — революционная биотехнологическая ткань, создаваемая микроорганизмами и полностью перерабатываемая без вреда для планеты.</p>
-                <a href="#concept" class="btn">Узнать больше</a>
-            </div>
-        </section>
+    <section class="hero">
+        <div class="container">
+            <h1>Одежда, которая возвращается к истокам</h1>
+            <p>Aqua-Cortex — революционная биотехнологическая ткань, создаваемая микроорганизмами и полностью перерабатываемая без вреда для планеты.</p>
+            <a href="#concept" class="btn">Узнать больше</a>
+        </div>
+    </section>
 
-        <section id="concept" class="section">
-            <div class="container">
-                <h2 class="section-title">Концепция Aqua-Cortex</h2>
-                <div class="infographic">
-                    <h3>Самовоспроизводящаяся биоткань с программируемым сроком жизни</h3>
-                    <p>Aqua-Cortex — это не просто материал, это миниатюрная экосистема, созданная двумя микроорганизмами, которые совместно производят прочную, гибкую и водонепроницаемую ткань. По команде (при помещении в специальный раствор) эта же экосистема запускает процесс самоликвидации материала.</p>
-                    
-                    <div class="lifecycle">
-                        <div class="lifecycle-step">
-                            <div class="lifecycle-icon"><i class="fas fa-flask"></i></div>
-                            <p>Биореактор</p>
-                        </div>
-                        <div class="arrow">→</div>
-                        <div class="lifecycle-step">
-                            <div class="lifecycle-icon"><i class="fas fa-seedling"></i></div>
-                            <p>Рост консорциума</p>
-                        </div>
-                        <div class="arrow">→</div>
-                        <div class="lifecycle-step">
-                            <div class="lifecycle-icon"><i class="fas fa-cube"></i></div>
-                            <p>Формование</p>
-                        </div>
-                        <div class="arrow">→</div>
-                        <div class="lifecycle-step">
-                            <div class="lifecycle-icon"><i class="fas fa-tshirt"></i></div>
-                            <p>Готовый материал</p>
-                        </div>
-                        <div class="arrow">→</div>
-                        <div class="lifecycle-step">
-                            <div class="lifecycle-icon"><i class="fas fa-recycle"></i></div>
-                            <p>Утилизация</p>
-                        </div>
+    <section id="concept" class="section">
+        <div class="container">
+            <h2 class="section-title">Концепция Aqua-Cortex</h2>
+            <div class="infographic">
+                <h3>Самовоспроизводящаяся биоткань с программируемым сроком жизни</h3>
+                <p>Aqua-Cortex — это не просто материал, это миниатюрная экосистема, созданная двумя микроорганизмами, которые совместно производят прочную, гибкую и водонепроницаемую ткань. По команде (при помещении в специальный раствор) эта же экосистема запускает процесс самоликвидации материала.</p>
+                
+                <div class="lifecycle">
+                    <div class="lifecycle-step">
+                        <div class="lifecycle-icon"><i class="fas fa-flask"></i></div>
+                        <p>Биореактор</p>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="lifecycle-step">
+                        <div class="lifecycle-icon"><i class="fas fa-seedling"></i></div>
+                        <p>Рост консорциума</p>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="lifecycle-step">
+                        <div class="lifecycle-icon"><i class="fas fa-cube"></i></div>
+                        <p>Формование</p>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="lifecycle-step">
+                        <div class="lifecycle-icon"><i class="fas fa-tshirt"></i></div>
+                        <p>Готовый материал</p>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="lifecycle-step">
+                        <div class="lifecycle-icon"><i class="fas fa-recycle"></i></div>
+                        <p>Утилизация</p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="bacteria" class="section">
-            <div class="container">
-                <h2 class="section-title">Биологические игроки</h2>
-                <div class="grid">
-                    <div class="card">
-                        <h3>Продуцент волокна</h3>
-                        <div class="bacteria-detail">
-                            <div class="bacteria-icon"><i class="fas fa-dna"></i></div>
-                            <div>
-                                <p class="bacteria-name">Cellulomonas aquatica synthetica</p>
-                                <p>Модифицированный штамм непатогенной бактерии Cellulomonas</p>
-                            </div>
+    <section id="bacteria" class="section">
+        <div class="container">
+            <h2 class="section-title">Биологические игроки</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Продуцент волокна</h3>
+                    <div class="bacteria-detail">
+                        <div class="bacteria-icon"><i class="fas fa-dna"></i></div>
+                        <div>
+                            <p class="bacteria-name">Cellulomonas aquatica synthetica</p>
+                            <p>Модифицированный штамм непатогенной бактерии Cellulomonas</p>
                         </div>
-                        <p>Генетически адаптированный для производства "Аквацелла" (Aquacell) — гибридного биополимера на основе целлюлозы и полигидроксиалканоата (ПГА).</p>
-                        <ul>
-                            <li>Целлюлоза обеспечивает прочность</li>
-                            <li>ПГА обеспечивает пластичность и водонепроницаемость</li>
-                            <li>Секретирует Aquacell в виде тонких, переплетающихся нановолокон</li>
-                            <li>Оптимальная температура роста: 28-32°C</li>
-                            <li>Время активного роста: 24-36 часов</li>
-                        </ul>
+                    </div>
+                    <p>Генетически адаптированный для производства "Аквацелла" (Aquacell) — гибридного биополимера на основе целлюлозы и полигидроксиалканоата (ПГА).</p>
+                    <ul>
+                        <li>Целлюлоза обеспечивает прочность</li>
+                        <li>ПГА обеспечивает пластичность и водонепроницаемость</li>
+                        <li>Секретирует Aquacell в виде тонких, переплетающихся нановолокон</li>
+                        <li>Оптимальная температура роста: 28-32°C</li>
+                        <li>Время активного роста: 24-36 часов</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>Продуцент связующего и "деструктор"</h3>
+                    <div class="bacteria-detail">
+                        <div class="bacteria-icon"><i class="fas fa-bacterium"></i></div>
+                        <div>
+                            <p class="bacteria-name">Bacillus ligans dissolvens</p>
+                            <p>Непатогенный штамм почвенной бактерии Bacillus subtilis</p>
+                        </div>
+                    </div>
+                    <p>Выполняет двойную функцию в производстве и утилизации материала.</p>
+                    <ul>
+                        <li>В фазе роста: выделяет фермент "Лигазин" (Ligasin) — биологический "клей", сшивающий волокна Aquacell</li>
+                        <li>В фазе утилизации: производит фермент "Диссолвин" (Dissolvin), избирательно расщепляющий молекулы Лигазина</li>
+                        <li>Оптимальная температура роста: 30-37°C</li>
+                        <li>Время активного роста: 18-24 часа</li>
+                        <li>Активация раствором-триггером: 2-4 часа</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="production" class="section">
+        <div class="container">
+            <h2 class="section-title">Процесс производства</h2>
+            <div class="infographic">
+                <h3>Как "выращивается" одежда будущего</h3>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time">0-24 часа</div>
+                        <h4>Подготовка питательной среды</h4>
+                        <p>Создание стерильной среды на основе очищенных сточных вод сельского хозяйства с добавлением питательных веществ для бактерий. Температура устанавливается на 30°C, pH регулируется до 6.8-7.2.</p>
                     </div>
                     
-                    <div class="card">
-                        <h3>Продуцент связующего и "деструктор"</h3>
-                        <div class="bacteria-detail">
-                            <div class="bacteria-icon"><i class="fas fa-bacterium"></i></div>
-                            <div>
-                                <p class="bacteria-name">Bacillus ligans dissolvens</p>
-                                <p>Непатогенный штамм почвенной бактерии Bacillus subtilis</p>
-                            </div>
-                        </div>
-                        <p>Выполняет двойную функцию в производстве и утилизации материала.</p>
-                        <ul>
-                            <li>В фазе роста: выделяет фермент "Лигазин" (Ligasin) — биологический "клей", сшивающий волокна Aquacell</li>
-                            <li>В фазе утилизации: производит фермент "Диссолвин" (Dissolvin), избирательно расщепляющий молекулы Лигазина</li>
-                            <li>Оптимальная температура роста: 30-37°C</li>
-                            <li>Время активного роста: 18-24 часа</li>
-                            <li>Активация раствором-триггером: 2-4 часа</li>
-                        </ul>
+                    <div class="timeline-item">
+                        <div class="timeline-time">24-48 часов</div>
+                        <h4>Инокуляция и рост консорциума</h4>
+                        <p>В биореактор вводятся оба штамма бактерий в соотношении 2:1 (Cellulomonas:Bacillus). Начинается активное размножение бактерий и производство волокон Aquacell.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-time">48-72 часа</div>
+                        <h4>Формование материала</h4>
+                        <p>Бактериальная культура переносится в плоские кюветы заданной формы. Подача кислорода ограничивается для стимулирования роста в плоскости. Bacillus начинает производить Лигазин для связывания волокон.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-time">72-96 часов</div>
+                        <h4>Созревание и сбор урожая</h4>
+                        <p>Формируется плотный, однородный биослой толщиной 0.5-2 мм. Материал извлекают, промывают и слегка подсушивают. На этом этапе материал уже прочный и готов к использованию.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <h4>Биореактор</h4>
+                        <p>В стерильном биореакторе со средой на основе очищенных сточных вод сельского хозяйства совместно культивируются оба штамма бактерий. Процесс проходит при постоянной температуре 30°C и контролируемом уровне кислорода.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <h4>Формование</h4>
+                        <p>Бактериальная культура подается в плоские кюветы заданной формы (например, в виде "выкройки" для куртки). Температура и подача кислорода регулируются для стимулирования роста бактерий в плоскости, формируя тонкий "коврик".</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <h4>Созревание</h4>
+                        <p>За 48-72 часа микроорганизмы создают плотный, однородный биослой толщиной 0.5-2 мм — материал Aqua-Cortex. В это время Bacillus производит Лигазин, который связывает волокна Aquacell в прочную структуру.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div>
+                        <h4>Сбор урожая</h4>
+                        <p>Пластину материала извлекают, промывают и слегка подсушивают. На этом этапе материал уже прочный и готов к "пошиву". Общее время производства от инокуляции до готового материала составляет 96-120 часов.</p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="production" class="section">
-            <div class="container">
-                <h2 class="section-title">Процесс производства</h2>
-                <div class="infographic">
-                    <h3>Как "выращивается" одежда будущего</h3>
-                    
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-time">0-24 часа</div>
-                            <h4>Подготовка питательной среды</h4>
-                            <p>Создание стерильной среды на основе очищенных сточных вод сельского хозяйства с добавлением питательных веществ для бактерий. Температура устанавливается на 30°C, pH регулируется до 6.8-7.2.</p>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-time">24-48 часов</div>
-                            <h4>Инокуляция и рост консорциума</h4>
-                            <p>В биореактор вводятся оба штамма бактерий в соотношении 2:1 (Cellulomonas:Bacillus). Начинается активное размножение бактерий и производство волокон Aquacell.</p>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-time">48-72 часа</div>
-                            <h4>Формование материала</h4>
-                            <p>Бактериальная культура переносится в плоские кюветы заданной формы. Подача кислорода ограничивается для стимулирования роста в плоскости. Bacillus начинает производить Лигазин для связывания волокон.</p>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-time">72-96 часов</div>
-                            <h4>Созревание и сбор урожая</h4>
-                            <p>Формируется плотный, однородный биослой толщиной 0.5-2 мм. Материал извлекают, промывают и слегка подсушивают. На этом этапе материал уже прочный и готов к использованию.</p>
-                        </div>
+    <section id="properties" class="section">
+        <div class="container">
+            <h2 class="section-title">Свойства материала</h2>
+            <div class="properties-grid">
+                <div class="property">
+                    <div class="property-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Прочность</h3>
+                    <p>Переплетенные волокна Aquacell, сшитые Лигазином, по прочности на разрыв сопоставимы с денимом. Прочность на разрыв: 45-60 МПа.</p>
+                </div>
+                
+                <div class="property">
+                    <div class="property-icon"><i class="fas fa-tint-slash"></i></div>
+                    <h3>Водостойкость</h3>
+                    <p>Гидрофобные компоненты ПГА в составе Aquacell делают материал устойчивым к воде и моющим средствам. Водопоглощение: менее 5%.</p>
+                </div>
+                
+                <div class="property">
+                    <div class="property-icon"><i class="fas fa-leaf"></i></div>
+                    <h3>Экологичность</h3>
+                    <p>Производство происходит при комнатной температуре, не требует токсичных химикатов и использует возобновляемое сырье. Углеродный след на 80% ниже, чем у хлопка.</p>
+                </div>
+                
+                <div class="property">
+                    <div class="property-icon"><i class="fas fa-recycle"></i></div>
+                    <h3>Полная перерабатываемость</h3>
+                    <p>Материал можно полностью переработать с помощью специального органического растворителя за 12-24 часа. Выход вторичного сырья: 92-95%.</p>
+                </div>
+                
+                <div class="property">
+                    <div class="property-icon"><i class="fas fa-wind"></i></div>
+                    <h3>Дышащий материал</h3>
+                    <p>Микроскопические поры в структуре материала позволяют коже дышать, обеспечивая комфорт при ношении. Воздухопроницаемость: 5-7 л/м²/с.</p>
+                </div>
+                
+                <div class="property">
+                    <div class="property-icon"><i class="fas fa-thermometer-half"></i></div>
+                    <h3>Терморегуляция</h3>
+                    <p>Материал адаптируется к температуре тела, обеспечивая комфорт в различных климатических условиях. Температурный диапазон: -10°C до +50°C.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="recycling" class="section">
+        <div class="container">
+            <h2 class="section-title">Процесс утилизации</h2>
+            <div class="infographic">
+                <h3>Биохимическая команда на самоуничтожение</h3>
+                <p>Мы не просто заливаем материал жидкостью, а даем ему биохимическую команду на самоуничтожение.</p>
+                
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <h4>Активация (0-2 часа)</h4>
+                        <p>Одежду помещают в чан с теплым (30°C) раствором-триггером — питательным бустером для Bacillus ligans dissolvens. Раствор содержит специфические пептиды, которые служат сигналом для активации бактерий.</p>
                     </div>
-                    
-                    <div class="process-step">
-                        <div class="step-number">1</div>
-                        <div>
-                            <h4>Биореактор</h4>
-                            <p>В стерильном биореакторе со средой на основе очищенных сточных вод сельского хозяйства совместно культивируются оба штамма бактерий. Процесс проходит при постоянной температуре 30°C и контролируемом уровне кислорода.</p>
-                        </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <h4>Пробуждение (2-4 часа)</h4>
+                        <p>Споры Bacillus ligans dissolvens, которые "спали" в толще материала, активируются под действием триггера. Бактерии переходят в вегетативное состояние и начинают активно размножаться.</p>
                     </div>
-                    
-                    <div class="process-step">
-                        <div class="step-number">2</div>
-                        <div>
-                            <h4>Формование</h4>
-                            <p>Бактериальная культура подается в плоские кюветы заданной формы (например, в виде "выкройки" для куртки). Температура и подача кислорода регулируются для стимулирования роста бактерий в плоскости, формируя тонкий "коврик".</p>
-                        </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <h4>Производство Диссолвина (4-12 часов)</h4>
+                        <p>Бактерии начинают бурно размножаться и массово производить фермент Диссолвин. Концентрация фермента достигает пика через 8-10 часов после активации.</p>
                     </div>
-                    
-                    <div class="process-step">
-                        <div class="step-number">3</div>
-                        <div>
-                            <h4>Созревание</h4>
-                            <p>За 48-72 часа микроорганизмы создают плотный, однородный биослой толщиной 0.5-2 мм — материал Aqua-Cortex. В это время Bacillus производит Лигазин, который связывает волокна Aquacell в прочную структуру.</p>
-                        </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div>
+                        <h4>Разрушение связей (12-24 часа)</h4>
+                        <p>Диссолвин избирательно разрушает молекулы Лигазина — "клей", скрепляющий волокна. Материал начинает терять структурную целостность и распадается на отдельные компоненты.</p>
                     </div>
-                    
-                    <div class="process-step">
-                        <div class="step-number">4</div>
-                        <div>
-                            <h4>Сбор урожая</h4>
-                            <p>Пластину материала извлекают, промывают и слегка подсушивают. На этом этапе материал уже прочный и готов к "пошиву". Общее время производства от инокуляции до готового материала составляет 96-120 часов.</p>
-                        </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <div>
+                        <h4>Конечный продукт (24 часа)</h4>
+                        <p>Материал полностью распадается на белую пушистую биомассу (бактериальные клетки) и гель из чистых волокон Aquacell, которые можно использовать как удобрение или сырье для нового производства. Выход вторичного сырья составляет 92-95%.</p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="properties" class="section">
-            <div class="container">
-                <h2 class="section-title">Свойства материала</h2>
-                <div class="properties-grid">
-                    <div class="property">
-                        <div class="property-icon"><i class="fas fa-shield-alt"></i></div>
-                        <h3>Прочность</h3>
-                        <p>Переплетенные волокна Aquacell, сшитые Лигазином, по прочности на разрыв сопоставимы с денимом. Прочность на разрыв: 45-60 МПа.</p>
+    <section id="faq" class="section">
+        <div class="container">
+            <h2 class="section-title">Часто задаваемые вопросы</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Можно ли стирать одежду из Aqua-Cortex в стиральной машине?</span>
+                        <i class="fas fa-chevron-down"></i>
                     </div>
-                    
-                    <div class="property">
-                        <div class="property-icon"><i class="fas fa-tint-slash"></i></div>
-                        <h3>Водостойкость</h3>
-                        <p>Гидрофобные компоненты ПГА в составе Aquacell делают материал устойчивым к воде и моющим средствам. Водопоглощение: менее 5%.</p>
+                    <div class="faq-answer">
+                        <p>Да, одежду из Aqua-Cortex можно стирать в стиральной машине в обычном режиме при рекомендуемых температурах (холодная/тёплая вода). Материал сохраняет свои свойства при многократных стирках (более 50 циклов). Рекомендуется использовать мягкие моющие средства без отбеливателей.</p>
                     </div>
-                    
-                    <div class="property">
-                        <div class="property-icon"><i class="fas fa-leaf"></i></div>
-                        <h3>Экологичность</h3>
-                        <p>Производство происходит при комнатной температуре, не требует токсичных химикатов и использует возобновляемое сырье. Углеродный след на 80% ниже, чем у хлопка.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Безопасен ли материал Aqua-Cortex для кожи?</span>
+                        <i class="fas fa-chevron-down"></i>
                     </div>
-                    
-                    <div class="property">
-                        <div class="property-icon"><i class="fas fa-recycle"></i></div>
-                        <h3>Полная перерабатываемость</h3>
-                        <p>Материал можно полностью переработать с помощью специального органического растворителя за 12-24 часа. Выход вторичного сырья: 92-95%.</p>
+                    <div class="faq-answer">
+                        <p>Да, материал проходит независимые тесты на гипоаллергенность и дерматологическую безопасность. Все компоненты являются биосовместимыми и не вызывают раздражения. Aqua-Cortex имеет сертификаты Oeko-Tex Standard 100 и EcoLabel.</p>
                     </div>
-                    
-                    <div class="property">
-                        <div class="property-icon"><i class="fas fa-wind"></i></div>
-                        <h3>Дышащий материал</h3>
-                        <p>Микроскопические поры в структуре материала позволяют коже дышать, обеспечивая комфорт при ношении. Воздухопроницаемость: 5-7 л/м²/с.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Что происходит, когда я сдаю вещь на переработку?</span>
+                        <i class="fas fa-chevron-down"></i>
                     </div>
-                    
-                    <div class="property">
-                        <div class="property-icon"><i class="fas fa-thermometer-half"></i></div>
-                        <h3>Терморегуляция</h3>
-                        <p>Материал адаптируется к температуре тела, обеспечивая комфорт в различных климатических условиях. Температурный диапазон: -10°C до +50°C.</p>
+                    <div class="faq-answer">
+                        <p>Вещь отправляется на специализированный завод переработки, где проходит процесс контролируемого биологического разложения. Компоненты материала либо возвращаются в производство, либо превращаются в компост, создавая замкнутый ресурсный цикл. Процесс занимает 24 часа и не производит вредных выбросов.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Может ли материал случайно начать разлагаться во время носки?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Нет, процесс разложения активируется только при помещении материала в специальный раствор-триггер при определенной температуре (30°C) в контролируемых условиях. В обычных условиях использования материал полностью стабилен. Бактерии находятся в спящем состоянии и неактивны без триггера.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Как долго служит одежда из Aqua-Cortex?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>При правильном уходе одежда из Aqua-Cortex сохраняет свои свойства в течение 3-5 лет интенсивного использования. Материал устойчив к износу, ультрафиолетовому излучению и многократным стиркам. После окончания срока службы рекомендуется сдать вещь на переработку.</p>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <section id="recycling" class="section">
-            <div class="container">
-                <h2 class="section-title">Процесс утилизации</h2>
-                <div class="infographic">
-                    <h3>Биохимическая команда на самоуничтожение</h3>
-                    <p>Мы не просто заливаем материал жидкостью, а даем ему биохимическую команду на самоуничтожение.</p>
-                    
-                    <div class="process-step">
-                        <div class="step-number">1</div>
-                        <div>
-                            <h4>Активация (0-2 часа)</h4>
-                            <p>Одежду помещают в чан с теплым (30°C) раствором-триггером — питательным бустером для Bacillus ligans dissolvens. Раствор содержит специфические пептиды, которые служат сигналом для активации бактерий.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="process-step">
-                        <div class="step-number">2</div>
-                        <div>
-                            <h4>Пробуждение (2-4 часа)</h4>
-                            <p>Споры Bacillus ligans dissolvens, которые "спали" в толще материала, активируются под действием триггера. Бактерии переходят в вегетативное состояние и начинают активно размножаться.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="process-step">
-                        <div class="step-number">3</div>
-                        <div>
-                            <h4>Производство Диссолвина (4-12 часов)</h4>
-                            <p>Бактерии начинают бурно размножаться и массово производить фермент Диссолвин. Концентрация фермента достигает пика через 8-10 часов после активации.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="process-step">
-                        <div class="step-number">4</div>
-                        <div>
-                            <h4>Разрушение связей (12-24 часа)</h4>
-                            <p>Диссолвин избирательно разрушает молекулы Лигазина — "клей", скрепляющий волокна. Материал начинает терять структурную целостность и распадается на отдельные компоненты.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="process-step">
-                        <div class="step-number">5</div>
-                        <div>
-                            <h4>Конечный продукт (24 часа)</h4>
-                            <p>Материал полностью распадается на белую пушистую биомассу (бактериальные клетки) и гель из чистых волокон Aquacell, которые можно использовать как удобрение или сырье для нового производства. Выход вторичного сырья составляет 92-95%.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="faq" class="section">
-            <div class="container">
-                <h2 class="section-title">Часто задаваемые вопросы</h2>
-                <div class="faq-list">
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>Можно ли стирать одежду из Aqua-Cortex в стиральной машине?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Да, одежду из Aqua-Cortex можно стирать в стиральной машине в обычном режиме при рекомендуемых температурах (холодная/тёплая вода). Материал сохраняет свои свойства при многократных стирках (более 50 циклов). Рекомендуется использовать мягкие моющие средства без отбеливателей.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>Безопасен ли материал Aqua-Cortex для кожи?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Да, материал проходит независимые тесты на гипоаллергенность и дерматологическую безопасность. Все компоненты являются биосовместимыми и не вызывают раздражения. Aqua-Cortex имеет сертификаты Oeko-Tex Standard 100 и EcoLabel.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>Что происходит, когда я сдаю вещь на переработку?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Вещь отправляется на специализированный завод переработки, где проходит процесс контролируемого биологического разложения. Компоненты материала либо возвращаются в производство, либо превращаются в компост, создавая замкнутый ресурсный цикл. Процесс занимает 24 часа и не производит вредных выбросов.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>Может ли материал случайно начать разлагаться во время носки?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Нет, процесс разложения активируется только при помещении материала в специальный раствор-триггер при определенной температуре (30°C) в контролируемых условиях. В обычных условиях использования материал полностью стабилен. Бактерии находятся в спящем состоянии и неактивны без триггера.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>Как долго служит одежда из Aqua-Cortex?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>При правильном уходе одежда из Aqua-Cortex сохраняет свои свойства в течение 3-5 лет интенсивного использования. Материал устойчив к износу, ультрафиолетовому излучению и многократным стиркам. После окончания срока службы рекомендуется сдать вещь на переработку.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
+        </div>
+    </section>
 
     <footer class="section">
         <div class="container">
@@ -995,7 +988,6 @@
                     <ul>
                         <li><i class="fas fa-envelope"></i> mirsiyevr@gmail.com</li>
                         <li><i class="fas fa-phone"></i> +77475550270</li>
-                        <li><i class="fas fa-map-marker-alt"></i> Москва, Россия</li>
                     </ul>
                 </div>
                 
@@ -1023,73 +1015,142 @@
                 answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
                 const icon = question.querySelector('i');
                 icon.classList.toggle('fa-chevron-down');
-                icon.classList.toggle('fa-chevron-up');
-            });
+                icon.classList icon.classList.toggle('fa-chevron-up');
+.toggle('fa-chevron-up');
+                       });
+        });
+        
+        // Скрываем все });
         });
         
         // Скрываем все ответы при загрузке страницы
+        document ответы при загрузке страницы
         document.querySelectorAll('.faq-answer').forEach(answer => {
+.querySelectorAll('.faq-answer').forEach(answer => {
             answer.style.display = 'none';
         });
         
-        // Анимация появления элементов при скролле
+            answer.style.display = 'none';
+        });
+        
+        // Анимация        // Анимация появления элементов при скролле появления элементов при скролле
+        const observerOptions =
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            threshold {
+            threshold:: 0.1,
+            rootMargin 0.1,
+            rootMargin: '0px 0: '0px 0px -50px 0pxpx -50px 0px'
         };
         
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+        const observer'
+        };
+        
+        const observer = new IntersectionObserver(( = new IntersectionObserver((entries) => {
+entries) => {
+            entries.forEach(entry =>            entries.forEach(entry => {
+                if (entry.isIntersecting {
                 if (entry.isIntersecting) {
+                    entry.target.classList) {
                     entry.target.classList.add('visible');
                     
-                    // Анимация для элементов внутри
-                    if (entry.target.classList.contains('lifecycle-step')) {
+                    //.add('visible');
+                    
+                    // Анимация для элементов внутри Анимация для элементов внутри
+                    if (entry
+                    if (entry.target.classList.target.classList.contains('lifecycle.contains('lifecycle-step-step')) {
+                        setTimeout(()')) {
                         setTimeout(() => {
-                            const arrows = document.querySelectorAll('.arrow');
-                            arrows.forEach((arrow, index) => {
+ => {
+                            const                            const arrows arrows = document.querySelectorAll('.arrow');
+                            arrows.forEach((arrow, index) = document.querySelectorAll('.arrow');
+                            arrows.forEach((arrow, index) => => {
+                                setTimeout {
                                 setTimeout(() => {
-                                    arrow.classList.add('visible');
-                                }, index * 200);
+                                   (() => {
+                                    arrow.classList.add(' arrow.classList.add('visible');
+visible');
+                                }, index *                                }, index * 200 200);
                             });
-                        }, 300);
+                       );
+                            });
+                        },  }, 300);
                     }
                     
-                    if (entry.target.classList.contains('footer-section')) {
-                        const listItems = entry.target.querySelectorAll('li');
+                    if (300);
+                    }
+                    
+                   entry.target.classList.contains('footer-section if (entry.target.classList.contains('')) {
+                        const listfooter-section')) {
+                        const listItems = entry.target.querySelectorAllItems = entry.target.querySelectorAll('li('li');
                         listItems.forEach((item, index) => {
-                            setTimeout(() => {
-                                item.style.transitionDelay = `${index * 0.1}s`;
-                                item.classList.add('visible');
+');
+                        listItems.forEach((item, index) => {
+                            setTimeout(() =>                            setTimeout(() => {
+                                item {
+                                item.style.transitionDelay =.style.transitionDelay = `${index `${index * 0. * 0.1}s1}s`;
+                                item.classList`;
+                                item.classList.add('.add('visible');
+                            },visible');
                             }, 100);
                         });
                     }
+                100);
+                        });
+                    }
+            });
+        }, observer }
                 }
             });
-        }, observerOptions);
+       Options);
         
-        // Наблюдаем за всеми элементами с анимацией
-        document.querySelectorAll('.section, .card, .infographic, .process-step, .lifecycle-step, .property, .faq-item, .timeline-item').forEach(el => {
-            observer.observe(el);
+        // Наблюда }, observerOptions);
+        
+        // Наблюдаем за всемием за всеми элементами элементами с анимацией с анимацией
+       
+        document.querySelectorAll('. document.querySelectorAll('.section, .cardsection, .card, ., .infographic, .process-step, .infographic, .process-step, .lifecycle-step,lifecycle-step, .property, .faq-item .property, .faq-item,, .timeline-item').forEach .timeline-item').forEach(el => {
+            observer.observe(el => {
+            observer.(el);
         });
         
-        // Плавная прокрутка к якорям с учетом фиксированного хедера
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+       observe(el);
+        });
+ // Плавная        
+        // Плавная прокрутка к якор прокрутка к якорям
+        documentям
+        document.querySelectorAll('a[href^="#"].querySelectorAll('a[href^="#"]').forEach').forEach(anchor => {
+(anchor => {
+            anchor.addEventListener('click', function            anchor.addEventListener('click', function(e) {
+                e.preventDefault(e) {
                 e.preventDefault();
                 
-                const targetId = this.getAttribute('href');
+();
+                
+                const targetId                const targetId = = this.getAttribute('href this.getAttribute('href');
+                if (targetId === '#');
                 if (targetId === '#') return;
                 
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 120, // Учитываем высоту фиксированного хедера
-                        behavior: 'smooth'
+') return;
+                
+                const                const targetElement = document targetElement = document.querySelector(target.querySelector(targetId);
+                ifId);
+                if (target (targetElementElement) {
+                   ) {
+ window.scrollTo({
+                        top: targetElement.                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'offsetTop - 80,
+                        behavior: 'ssmooth'
                     });
                 }
             });
         });
-    </script>
+    </mooth'
+                    });
+                }
+            });
+        });
+    </scriptscript>
+</body>
+</>
 </body>
 </html>
